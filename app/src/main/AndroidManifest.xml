@@ -13,6 +13,10 @@
         android:theme="@style/Theme.LoginScreen">
 
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
 

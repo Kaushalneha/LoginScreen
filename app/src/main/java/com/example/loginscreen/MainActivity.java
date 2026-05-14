@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button LoginButton;
+    private TextView signupText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         LoginButton = findViewById(R.id.LoginBtn);
+        signupText = findViewById(R.id.SignupText);
 
         LoginButton.setOnClickListener(v -> {
             String user = username.getText().toString();
@@ -40,13 +43,17 @@ public class MainActivity extends AppCompatActivity {
             if (user.equals("user") && pass.equals("786")) {
                 Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 
-                // Navigate to HomeActivity
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
-                finish(); // Optional: finish MainActivity so the user can't go back to the login screen
+                finish(); 
             } else {
                 Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        signupText.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+            startActivity(intent);
         });
     }
 }
